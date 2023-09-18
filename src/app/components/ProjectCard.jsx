@@ -63,7 +63,7 @@ function ProjectCard({ project }) {
     }
 
     fetchTechStackData();
-  }, []);
+  }, ['project.TechStack']);
 
   // modal functionality
   const openModal = () => {

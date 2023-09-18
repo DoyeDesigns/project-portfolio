@@ -24,7 +24,7 @@ const ImageCarousel = ({ images }) => {
       <div className="image-container text-center">
         {images.map((image, index) => (
             <LazyLoad offset={600}>
-          <img 
+          <Image 
             key={index}
             src={image.url}
             alt={`Image ${index + 1}`}
