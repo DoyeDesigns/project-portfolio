@@ -45,7 +45,7 @@ function Skills() {
         animate={inView ? { x: 0, opacity: 1} : { x: '-200px'}} // Slide in when inView is true
         transition={{ duration: 0.4, delay: 0.2, type: 'spring', stiffness: 150, damping: 15}}
         >
-          Skills &<br /> Experience
+          <h1>Skills &<br /> Experience</h1>
         </motion.h1>
         <div className="flex gap-4 h-80">
           <div className="skills flex flex-wrap justify-between gap-4 w-3/6 scroll-smooth overflow-y-auto">

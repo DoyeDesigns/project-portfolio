@@ -199,7 +199,7 @@ function ProjectCard({ project }) {
                     <p>Loading tech stack images...</p>
                   ) : (
                     techStackImages.map((image, index) => (
-                      <LazyLoad offset={600}>
+                      <LazyLoad offset={600} key={index}>
                         <div className="text-center">
                           <Image
                             key={index}
