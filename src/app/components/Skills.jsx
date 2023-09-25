@@ -5,16 +5,27 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import LazyLoad from 'react-lazy-load';
 import { useInView } from "react-intersection-observer";
-import Experiences from "./Experiences"; // Rename the import to match the component's file name
+import Experiences from "./Experiences";
+import { db, storage } from "../config/firebase";
+import {
+  getDocs,
+  collection,
+  doc,
+  getDoc
+} from "firebase/firestore";
+import { ref } from "firebase/storage";
 
 function Skills() {
   const [ref, inView] = useInView({ triggerOnce: true });
   const [skills, setSkills] = useState([]);
-  const [experience, setExperience] = useState([]); // Move experience state to the Skills component
+  const [experience, setExperience] = useState([]);
+
+  const skillsCollectionRef = collection(db, 'skills');
 
   async function fetchData() {
     try {
-      const skillsResponse = await fetch('https://script.google.com/macros/s/AKfycbxL_LuQfIpdix6NX4gOVihw0HvQB3mGMX3KAvATCQV-kj03e7i0UrjIJzoH62WrBzzCew/exec');
+      const skillsResponse = await getDoc(skillsCollectionRef);
+      console.log(skillsResponse)
       const experienceResponse = await fetch('https://script.google.com/macros/s/AKfycbzqljs0bg34RZ93o06gLybwz89Fj5sZOjS2DLlCFo4zbANT4wWy5t019PpS1aCIEWlpog/exec');
 
       // if (!skillsResponse.ok || !experienceResponse.ok) {
