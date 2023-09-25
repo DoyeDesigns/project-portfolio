@@ -7,7 +7,7 @@ import Modal from "react-modal";
 import LazyLoad from "react-lazy-load";
 import ImageCarousel from "./ImageCarousel";
 
-// fetching skills data from skills api
+// fetching skills data from skills API
 async function fetchTechStackImages(techStack, secondApiUrl) {
   try {
     const response = await fetch(secondApiUrl);
@@ -63,7 +63,7 @@ function ProjectCard({ project }) {
     }
 
     fetchTechStackData();
-  }, []);
+  }, [project.TechStack]);
 
   // modal functionality
   const openModal = () => {
@@ -199,9 +199,10 @@ function ProjectCard({ project }) {
                     <p>Loading tech stack images...</p>
                   ) : (
                     techStackImages.map((image, index) => (
-                      <LazyLoad key={index} offset={600}>
+                      <LazyLoad offset={600} key={index}>
                         <div className="text-center">
                           <Image
+                            key={index}
                             src={image.url}
                             alt={`Tech Stack ${index + 1}`}
                             width={300} 

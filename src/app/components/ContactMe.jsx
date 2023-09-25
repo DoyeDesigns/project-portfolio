@@ -16,7 +16,7 @@ function ContactMe() {
         animate={inView ? { x: 0, opacity: 1} : { x: '-200px'}} // Slide in when inView is true
         transition={{ duration: 0.4, delay: 0.2, type: 'spring', stiffness: 150, damping: 15}}
         >
-          Let's talk
+          <h1>Let&apos;s talk</h1>
         </motion.h1>
         <form className="w-6/12 mx-auto mr-0 flex flex-col gap-10">
           <input

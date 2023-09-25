@@ -21,7 +21,7 @@ function Aboutme() {
                 animate={inView ? { x: 0, opacity: 1} : { x: '-200px'}} // Slide in when inView is true
                 transition={{ duration: 0.4, delay: 0.2, type: 'spring', stiffness: 150, damping: 15}}
               >
-                About me
+                <h1>About me</h1>
               </motion.h1>
               <p className="pb-6">
                 Provident cupiditate voluptatem et in. Quaerat fugiat ut

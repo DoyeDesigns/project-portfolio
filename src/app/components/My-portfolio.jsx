@@ -53,8 +53,8 @@ function MyPortfolio() {
             animate={inView ? { x: 0, opacity: 1} : { x: '-200px'}} // Slide in when inView is true
             transition={{ duration: 0.4, delay: 0.2, type: 'spring', stiffness: 150, damping: 15}}
             >
-              My
-              <br /> Portfolio
+              <h1>My
+              <br /> Portfolio</h1>
             </motion.h1>
             {projects.length > 4 && <ProjectCard project={shuffledProjects[0]} />}
           </div>
