@@ -8,34 +8,32 @@ import { useInView } from "react-intersection-observer";
 import Experiences from "./Experiences";
 import { db, storage } from "../config/firebase";
 import {
-  getDocs,
   collection,
   doc,
+  getDocs,
   getDoc
 } from "firebase/firestore";
-import { ref } from "firebase/storage";
 
 function Skills() {
   const [ref, inView] = useInView({ triggerOnce: true });
-  const [skills, setSkills] = useState([]);
+  const [skill, setSkill] = useState([]);
   const [experience, setExperience] = useState([]);
 
-  const skillsCollectionRef = collection(db, 'skills');
+  const skillsCollectionRef = collection(db, 'skills'); 
 
   async function fetchData() {
     try {
-      const skillsResponse = await getDoc(skillsCollectionRef);
-      console.log(skillsResponse)
+      const skillsResponse = await getDocs(skillsCollectionRef);
+      const skillsData = skillsResponse.docs.map((doc) => ({
+        ...doc.data()
+      }));
+
       const experienceResponse = await fetch('https://script.google.com/macros/s/AKfycbzqljs0bg34RZ93o06gLybwz89Fj5sZOjS2DLlCFo4zbANT4wWy5t019PpS1aCIEWlpog/exec');
 
-      // if (!skillsResponse.ok || !experienceResponse.ok) {
-      //   throw new Error('Network response was not ok');
-      // }
-
-      const skillsData = await skillsResponse.json();
+      // const skillsData = await skillsResponse.json();
       const experienceData = await experienceResponse.json();
 
-      setSkills(skillsData);
+      setSkill(skillsData);
       setExperience(experienceData);
     } catch (error) {
       // Handle the error
@@ -60,18 +58,22 @@ function Skills() {
         </motion.h1>
         <div className="flex gap-4 h-80">
           <div className="skills flex flex-wrap justify-between gap-4 w-3/6 scroll-smooth overflow-y-auto">
-          {skills.map(skill => (
-              <div key={skill.Name} className="w-40 text-center">
-                <LazyLoad offset={600}>
-                <Image
-                  src={skill.Image}
-                  alt={skill.Name}
-                  width={300}
-                  height={300}
-                  className="mx-auto object-contain cursor-pointer w-14 h-14 md:w-auto md:h-auto"
-                />
-                </LazyLoad>
-                <span>{skill.Name}</span>
+          {skill.map((items, index) => (
+              <div key={index} className="w-40 text-center">
+                {items.skills.map((skill) => {
+                  return (<div>
+                    <LazyLoad offset={600}>
+                      <Image
+                        src={skill.ImageUrl}
+                        alt={skill.Name}
+                        width={300}
+                        height={300}
+                        className="mx-auto object-contain cursor-pointer w-14 h-14 md:w-auto md:h-auto"
+                      />
+                    </LazyLoad>
+                    <span>{skill.Name}</span>
+                  </div>)
+                })}
               </div>
             ))}
           </div>
