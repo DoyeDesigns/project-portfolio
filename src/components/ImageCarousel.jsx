@@ -33,9 +33,9 @@ const ImageCarousel = ({ images }) => {
               key={index}
               src={image.url}
               alt={`Image ${index + 1}`}
-              className="object-contain"
-              width={100}
-              height={100}
+              className="object-cover"
+              width={image.width}
+              height={image.height}
               style={{
                 width: `${image.width}`,
                 display: index === currentIndex ? "block" : "none",

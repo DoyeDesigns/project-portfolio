@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import React from "react";
@@ -6,64 +6,33 @@ import { useState, useEffect } from "react";
 import Modal from "react-modal";
 import LazyLoad from "react-lazy-load";
 import ImageCarousel from "./ImageCarousel";
-
-// fetching skills data from skills API
-async function fetchTechStackImages(techStack, secondApiUrl) {
-  try {
-    const response = await fetch(secondApiUrl);
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-
-    const secondApiData = await response.json();
-
-    // Create a mapping of words to images from the second API data
-    const wordToImageMap = {};
-    secondApiData.forEach((item) => {
-      wordToImageMap[item.Name] = item.Image;
-    });
-
-    // Map the words from techStack to their corresponding images
-    const techStackWords = techStack.split(",").map((word) => word.trim());
-    const techStackImages = techStackWords.map((word) => ({
-      url: wordToImageMap[word],
-      name: word, 
-    }));
-
-    return techStackImages;
-  } catch (error) {
-    console.error("Error fetching data from the second API: ", error);
-    throw error;
-  }
-}
+import { db } from "../config/firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 function ProjectCard({ project }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [techStackImages, setTechStackImages] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [skill, setSkill] = useState([]);
 
   useEffect(() => {
-    // Replace 'URL_OF_SECOND_API' with the actual URL of your second API
-    const secondApiUrl =
-      "https://script.google.com/macros/s/AKfycbxL_LuQfIpdix6NX4gOVihw0HvQB3mGMX3KAvATCQV-kj03e7i0UrjIJzoH62WrBzzCew/exec";
+    const skillsCollectionRef = collection(db, "skills");
 
-    // Use async function to fetch tech stack images
-    async function fetchTechStackData() {
+    async function fetchData() {
       try {
-        const images = await fetchTechStackImages(
-          project.TechStack,
-          secondApiUrl
-        );
-        setTechStackImages(images);
-        setLoading(false);
+        const skillsResponse = await getDocs(skillsCollectionRef);
+        const skillsData = skillsResponse.docs.map((doc) => ({
+          ...doc.data(),
+        }));
+
+        setSkill(skillsData[0].skills);
       } catch (error) {
-        setLoading(false);
+        // Handle the error
+        console.error("Error fetching data:", error);
       }
     }
 
-    fetchTechStackData();
-  }, [project.TechStack]);
+    fetchData();
+  }, []);
 
   // modal functionality
   const openModal = () => {
@@ -81,15 +50,16 @@ function ProjectCard({ project }) {
 
   // see more functionality
   const renderText = () => {
-    if (isExpanded || project.Description.length <= 10) {
-      return project.Description;
+    if (isExpanded || project.description.length <= 10) {
+      return project.description;
     } else if (
-      project.Description.split(" ").slice(0, 10).join(" ") ===
-      project.Description
+      project.description.split(" ").slice(0, 10).join(" ") ===
+      project.description
     ) {
-      return project.Description;
+      return project.description;
     } else {
-      const shortenedText = project.Description.split(" ")
+      const shortenedText = project.description
+        .split(" ")
         .slice(0, 10)
         .join(" ");
       return (
@@ -126,12 +96,14 @@ function ProjectCard({ project }) {
   // carousel images
   const images = [
     {
-      url: project.Image,
-      width: 'auto',
+      url: project.image,
+      width: "500",
+      height: "500",
     },
     {
-      url: project.MobileView,
-      width: '250px',
+      url: project.mobileView,
+      width: "200",
+      height: "200",
     },
   ];
 
@@ -142,9 +114,15 @@ function ProjectCard({ project }) {
           onClick={openModal}
           className="flex justify-between items-center pt-8 mb-2 border-t-2 border-[#7D7D7D] cursor-pointer"
         >
-          <h2 className="text-xl sm:text-2xl font-bold">{project.Name}</h2>
+          <h2 className="text-xl sm:text-2xl font-bold">{project.name}</h2>
           <div>
-            <Image src="/icons8-arrow.svg" width={20} height={20} alt='click-me-arrow' className="rounded-full" />
+            <Image
+              src="/icons8-arrow.svg"
+              width={20}
+              height={20}
+              alt="click-me-arrow"
+              className="rounded-full"
+            />
           </div>
         </div>
         <p className="mb-5 max max-h-72 overflow-y-auto">
@@ -154,10 +132,10 @@ function ProjectCard({ project }) {
         <div className="text-center">
           <LazyLoad offset={600}>
             <Image
-              src={project.Image}
-              width={300} 
+              src={project.image}
+              width={300}
               height={300}
-              alt={project.Name}
+              alt={project.name}
               className="mx-auto object-contain cursor-pointer"
               onClick={openModal}
             />
@@ -169,6 +147,7 @@ function ProjectCard({ project }) {
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         contentLabel="Example Modal"
+        appElement={document.getElementById("root")}
       >
         <div>
           <div className="flex justify-end mb-2">
@@ -190,50 +169,54 @@ function ProjectCard({ project }) {
               <ImageCarousel images={images} />
             </div>
             <div>
-              <h2 className="text-2xl mt-10 mb-2 font-bold">{project.Name}</h2>
-              <p>{project.Description}</p>
+              <h2 className="text-2xl mt-10 mb-2 font-bold">{project.name}</h2>
+              <p>{project.description}</p>
               <div>
                 <h3 className="text-xl mt-5 mb-2 font-bold">Tech Stack</h3>
                 <div className="flex">
-                  {loading ? (
-                    <p>Loading tech stack images...</p>
-                  ) : (
-                    techStackImages.map((image, index) => (
+                  {project.techStack.map((stack, index) => {
+                    const matchingSkill = skill.find(
+                      (skill) => skill.Name === stack
+                    );
+                    return (
                       <LazyLoad offset={600} key={index}>
                         <div className="text-center">
-                          <Image
-                            key={index}
-                            src={image.url}
-                            alt={`Tech Stack ${index + 1}`}
-                            width={300} 
-                            height={300}
-                            className="mx-2 object-contain cursor-pointer w-14 h-14 md:w-auto md:h-auto"
-                          />
-                          <span className="mt-2">{image.name}</span>
+                          {matchingSkill ? (
+                            <Image
+                              key={index}
+                              src={matchingSkill?.ImageUrl}
+                              alt={`Tech Stack ${index + 1}`}
+                              width={300}
+                              height={300}
+                              className="mx-2 object-contain cursor-pointer w-14 h-14 md:w-auto md:h-auto"
+                            />
+                          ) : (
+                            <p>{stack}</p>
+                          )}
                         </div>
                       </LazyLoad>
-                    ))
-                  )}
+                    );
+                  })}
                 </div>
               </div>
               <h4 className="text-xl mt-5 mb-2 font-bold">Live Link</h4>
               <span>
                 <a
-                  href={project.LiveLink}
+                  href={project.liveLink}
                   target="blank"
                   className="text-blue-500 hover:underline"
                 >
-                  {project.LiveLink}
+                  {project.liveLink}
                 </a>
               </span>
               <h5 className="text-xl mt-5 mb-2 font-bold">Github Repo</h5>
               <span>
                 <a
-                  href={project.GithubRepo}
+                  href={project.githubRepo}
                   target="blank"
                   className="text-blue-500 hover:underline"
                 >
-                  {project.GithubRepo}
+                  {project.githubRepo}
                 </a>
               </span>
             </div>
