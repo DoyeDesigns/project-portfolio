@@ -22,7 +22,7 @@ function Skills() {
         const skillsData = skillsResponse.docs.map((doc) => ({
           ...doc.data(),
         }));
-  
+
         setSkill(skillsData[0].skills);
       } catch (error) {
         // Handle the error
@@ -30,14 +30,14 @@ function Skills() {
       }
     }
 
-    fetchData()
+    fetchData();
   }, []);
 
   return (
     <section>
       <div className="w-10/12 mx-auto py-16">
         <motion.h1
-          className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-14"
+          className="text-center lg:text-left text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-14"
           ref={ref}
           initial={{ x: "-400px", opacity: 0 }} // Start position
           animate={inView ? { x: 0, opacity: 1 } : { x: "-200px" }} // Slide in when inView is true
@@ -49,10 +49,10 @@ function Skills() {
             damping: 15,
           }}
         >
-            Skills &<br /> Experience
+          Skills &<br /> Experience
         </motion.h1>
-        <div className="flex gap-4 h-80">
-          <div className="skills flex flex-wrap justify-between gap-4 w-3/6 scroll-smooth overflow-y-auto">
+        <div className="flex flex-col lg:flex-row mx-auto gap-4">
+          <div className="skills flex flex-nowrap lg:flex-wrap items-center lg:justify-around gap-4 w-full lg:w-3/6 scroll-smooth overscroll-contain overflow-x-auto lg:h-[448px] lg:overflow-y-auto">
             {skill.map((skill, index) => (
               <div key={index} className="w-40 text-center">
                 <LazyLoad offset={600}>
@@ -61,14 +61,14 @@ function Skills() {
                     alt={skill.Name}
                     width={300}
                     height={300}
-                    className="mx-auto object-contain cursor-pointer w-14 h-14 md:w-auto md:h-auto"
+                    className="mx-auto object-contain cursor-pointer w-10 h-10 md:w-auto md:h-auto"
                   />
                 </LazyLoad>
-                <span>{skill.Name}</span>
+                <span className="text-sm lg:text-md">{skill.Name}</span>
               </div>
             ))}
           </div>
-          <div className="exp w-3/6 flex flex-col gap-2 overflow-y-auto overscroll-contain order-first">
+          <div className="exp w-full lg:w-3/6 max-h-md min-w-[100px] flex flex-col gap-4 overflow-y-auto scroll-smooth overflow-x-auto overscroll-contain order-first">
             <Experiences />
           </div>
         </div>

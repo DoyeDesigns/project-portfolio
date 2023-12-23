@@ -34,7 +34,7 @@ function Experiences() {
     <>
       {experiences.map((exp, index) => (
         <div
-          className="border-[#7D7D7D] border-l-4 p-4 bg-base-200"
+          className="border-[#7D7D7D] border-l-4 p-4 bg-base-200 text-wrap"
           key={index}
         >
           <h2 className="text-xl">{exp.companyName}</h2>

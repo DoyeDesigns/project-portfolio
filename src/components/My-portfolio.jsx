@@ -47,11 +47,11 @@ function MyPortfolio() {
 
   return (
     <section>
-      <div className="w-10/12 mx-auto flex justify-between gap-4 py-16">
-        <div>
+      <div className="w-10/12 mx-auto flex flex-col justify-center md:flex-row md:justify-between gap-8 md:gap-4 py-16">
+        <div className="mx-auto md:m-0">
           <div>
             <motion.h1
-              className="text-3xl font-extrabold mb-[105px] sm:text-4xl lg:text-6xl"
+              className="text-center md:text-left text-3xl font-extrabold mb-14 md:mb-[105px] sm:text-4xl lg:text-6xl"
               ref={ref}
               initial={{ x: "-400px", opacity: 0 }} // Start position
               animate={inView ? { x: 0, opacity: 1 } : { x: "-200px" }} // Slide in when inView is true
@@ -72,22 +72,22 @@ function MyPortfolio() {
           </div>
         </div>
 
-        <div className="pt-28">
+        <div className="pt-0 md:pt-28 mx-auto md:m-0">
           {projects.length > 4 && <ProjectCard project={shuffledProjects[1]} />}
         </div>
 
         <div className="flex flex-col gap-[70px]">
-          <div className="flex flex-col justify-between">
+          <div className="flex flex-col mx-auto md:m-0 md:justify-between">
             {projects.length > 4 && (
               <ProjectCard project={shuffledProjects[2]} />
             )}
           </div>
-          <div className="flex justify-end">
+          <div className="text-xl flex justify-center md:justify-end">
             <motion.a
               href="/portfolio"
               className="p-2 bg-neutral-focus flex justify-center items-center text-white w-40 h-40 rounded-full"
-              whileHover={{ scale: [null, 1.4, 1.2] }}
-              transition={{ duration: 0.3 }}
+              whileHover={{ scale: [null, 1.2, 1.1] }}
+              transition={{ duration: 0.2 }}
             >
               See More
             </motion.a>

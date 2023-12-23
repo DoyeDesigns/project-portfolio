@@ -108,11 +108,11 @@ function ProjectCard({ project }) {
   ];
 
   return (
-    <div className="project-container max-w-xs">
+    <div className="project-container max-w-xs bg-zinc-100 hover:bg-zinc-200 px-3 pb-5 rounded-md cursor-pointer">
       <div>
         <div
           onClick={openModal}
-          className="flex justify-between items-center pt-8 mb-2 border-t-2 border-[#7D7D7D] cursor-pointer"
+          className="flex justify-between items-center pt-8 mb-2 border-t-2 border-[#7D7D7D]"
         >
           <h2 className="text-xl sm:text-2xl font-bold">{project.name}</h2>
           <div>
@@ -173,28 +173,33 @@ function ProjectCard({ project }) {
               <p>{project.description}</p>
               <div>
                 <h3 className="text-xl mt-5 mb-2 font-bold">Tech Stack</h3>
-                <div className="flex">
+                <div className="flex gap-1">
                   {project.techStack.map((stack, index) => {
                     const matchingSkill = skill.find(
                       (skill) => skill.Name === stack
                     );
                     return (
-                      <LazyLoad offset={600} key={index}>
-                        <div className="text-center">
-                          {matchingSkill ? (
-                            <Image
-                              key={index}
-                              src={matchingSkill?.ImageUrl}
-                              alt={`Tech Stack ${index + 1}`}
-                              width={300}
-                              height={300}
-                              className="mx-2 object-contain cursor-pointer w-14 h-14 md:w-auto md:h-auto"
-                            />
-                          ) : (
-                            <p>{stack}</p>
-                          )}
-                        </div>
-                      </LazyLoad>
+                      <div key={index}>
+                        <LazyLoad offset={600}>
+                          <div className="text-center">
+                            {matchingSkill ? (
+                              <div className="flex flex-col justify-center items-center gap-1">
+                                <Image
+                                  key={index}
+                                  src={matchingSkill?.ImageUrl}
+                                  alt={`Tech Stack {index + 1}`}
+                                  width={150}
+                                  height={150}
+                                  className="mx-2 object-contain cursor-pointer w-14 h-14 md:w-auto md:h-auto"
+                                />
+                                <p>{matchingSkill?.Name}</p>
+                              </div>
+                            ) : (
+                              <p>{stack}</p>
+                            )}
+                          </div>
+                        </LazyLoad>
+                      </div>
                     );
                   })}
                 </div>
@@ -204,7 +209,7 @@ function ProjectCard({ project }) {
                 <a
                   href={project.liveLink}
                   target="blank"
-                  className="text-blue-500 hover:underline"
+                  className="text-blue-500 hover:underline text-wrap"
                 >
                   {project.liveLink}
                 </a>
@@ -214,7 +219,7 @@ function ProjectCard({ project }) {
                 <a
                   href={project.githubRepo}
                   target="blank"
-                  className="text-blue-500 hover:underline"
+                  className="text-blue-500 hover:underline text-wrap"
                 >
                   {project.githubRepo}
                 </a>
