@@ -46,8 +46,8 @@ function MyPortfolio() {
   const shuffledProjects = shuffleArray(projects);
 
   return (
-    <section>
-      <div className="w-10/12 mx-auto flex flex-col justify-center md:flex-row md:justify-between gap-8 md:gap-4 py-16">
+    <section id='my-portfolio'>
+      <div className="w-11/12 mx-auto flex flex-col justify-center md:flex-row md:justify-between gap-8 md:gap-4 py-16">
         <div className="mx-auto md:m-0">
           <div>
             <motion.h1

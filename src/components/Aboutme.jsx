@@ -10,9 +10,9 @@ function Aboutme() {
 
   return (
     <>
-      <section>
-        <div className="w-10/12 mx-auto pb-16 lg:py-16">
-          <div className="flex flex-col text-center lg:text-left justify-center lg:flex-row gap-9 lg:gap-24">
+      <section id='about-me'>
+        <div className="w-11/12 mx-auto pb-16 lg:py-16">
+          <div className="flex flex-col text-center lg:text-left justify-center lg:flex-row lg:justify-between gap-9">
             <div>
               <motion.h1
                 className="text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-14"
@@ -29,13 +29,14 @@ function Aboutme() {
               >
                 About me
               </motion.h1>
-              <p className="pb-6">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                assumenda excepturi exercitationem quasi. In deleniti eaque aut
-                repudiandae et a id nisi.
+              <p className="pb-3">
+                I am a self-taught frontend developer passionate about creating engaging, intuitive, and responsive user interfaces that deliver exceptional user experiences. I enjoy collaborating with agile teams and believe that remarkable products are built through teamwork. I am a graduate of the Zuri Training Program.
               </p>
+
+              <p className='pb-6'>When I want to clear my head I play video games, listen to music, watch a movie/anime or play football.</p>
+
               <motion.button
-                className="p-2 hover:border-[1px] hover:border-[#7D7D7D] border-2 border-[#7D7D7D] btn rounded"
+                className="p-2 hover:border-[1px] hover:border-[#7D7D7D] active:bg-zinc-200 border-2 border-[#7D7D7D] btn rounded"
                 whileHover={{ scale: [null, 1.2, 1.1] }}
                 transition={{ duration: 0.2 }}
               >

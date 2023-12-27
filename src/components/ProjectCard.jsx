@@ -130,7 +130,7 @@ function ProjectCard({ project }) {
           {renderSeeLess()}
         </p>
         <div className="text-center">
-          <LazyLoad offset={600}>
+    <LazyLoad offset={800}>
             <Image
               src={project.image}
               width={300}
@@ -180,7 +180,7 @@ function ProjectCard({ project }) {
                     );
                     return (
                       <div key={index}>
-                        <LazyLoad offset={600}>
+                        <LazyLoad offset={300}>
                           <div className="text-center">
                             {matchingSkill ? (
                               <div className="flex flex-col justify-center items-center gap-1">

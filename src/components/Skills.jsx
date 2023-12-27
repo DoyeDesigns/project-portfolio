@@ -34,8 +34,8 @@ function Skills() {
   }, []);
 
   return (
-    <section>
-      <div className="w-10/12 mx-auto py-16">
+    <section id='skills'>
+      <div className="w-11/12 mx-auto py-16">
         <motion.h1
           className="text-center lg:text-left text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-14"
           ref={ref}
@@ -55,13 +55,13 @@ function Skills() {
           <div className="skills flex flex-nowrap lg:flex-wrap items-center lg:justify-around gap-4 w-full lg:w-3/6 scroll-smooth overscroll-contain overflow-x-auto lg:h-[448px] lg:overflow-y-auto">
             {skill.map((skill, index) => (
               <div key={index} className="w-40 text-center">
-                <LazyLoad offset={600}>
+                <LazyLoad offset={300}>
                   <Image
                     src={skill.ImageUrl}
                     alt={skill.Name}
                     width={300}
                     height={300}
-                    className="mx-auto object-contain cursor-pointer w-10 h-10 md:w-auto md:h-auto"
+                    className="mx-auto object-contain w-10 h-10 md:w-auto md:h-auto"
                   />
                 </LazyLoad>
                 <span className="text-sm lg:text-md">{skill.Name}</span>
