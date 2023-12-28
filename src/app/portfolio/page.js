@@ -111,10 +111,10 @@ function Portfolio() {
                   style={customStyles}
                 >
                   <div>
-                    <div className="flex justify-end mb-2">
+                    <div className="flex justify-end mb-2 sticky top-0 z-10">
                       <button
                         onClick={() => closeModal()}
-                        className="text-xl rounded-full p-2 hover:bg-slate-50"
+                        className="text-xl rounded-full p-2 bg-zinc-100 hover:bg-zinc-200"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
