@@ -68,14 +68,25 @@ function FeaturedProjects() {
           Featured
           <br /> Projects
         </motion.h1>
-        <div className="flex flex-col justify-center md:flex-row md:justify-between gap-8">
-          {shuffleArray(featuredProjects)
-            .slice(0, 3)
-            .map((project) => (
-              <div key={project.id} className="flex justify-center items-start">
-                <ProjectCard key={project.id} project={project} />
-              </div>
-            ))}
+        <div className="flex justify-center items-center">
+          {featuredProjects.length > 1 ? (
+            <div className="flex flex-col justify-center md:flex-row md:justify-between gap-8">
+              {shuffleArray(featuredProjects)
+                .slice(0, 3)
+                .map((project) => (
+                  <div
+                    key={project.id}
+                    className="flex justify-center items-start"
+                  >
+                    <ProjectCard key={project.id} project={project} />
+                  </div>
+                ))}
+            </div>
+          ) : (
+            <div className="h-40 w-40 flex justify-center items-center bg-zinc-100 rounded-md">
+              <span className="loading loading-spinner loading-lg"></span>
+            </div>
+          )}
         </div>
       </div>
     </section>

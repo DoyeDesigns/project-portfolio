@@ -66,20 +66,34 @@ function MyPortfolio() {
               My
               <br /> Portfolio
             </motion.h1>
-            {projects.length > 4 && (
+            {projects.length > 4 ? (
               <ProjectCard project={shuffledProjects[0]} />
+            ) : (
+              <div className="h-40 w-40 flex justify-center items-center bg-zinc-100 rounded-md">
+                <span className="loading loading-spinner loading-lg"></span>
+              </div>
             )}
           </div>
         </div>
 
         <div className="pt-0 md:pt-28 mx-auto md:m-0">
-          {projects.length > 4 && <ProjectCard project={shuffledProjects[1]} />}
+          {projects.length > 4 ? (
+            <ProjectCard project={shuffledProjects[1]} />
+          ) : (
+            <div className="h-40 w-40 flex justify-center items-center bg-zinc-100 rounded-md">
+              <span className="loading loading-spinner loading-lg"></span>
+            </div>
+          )}
         </div>
 
         <div className="flex flex-col gap-[70px]">
           <div className="flex flex-col mx-auto md:m-0 md:justify-between">
-            {projects.length > 4 && (
+            {projects.length > 4 ? (
               <ProjectCard project={shuffledProjects[2]} />
+            ) : (
+              <div className="h-40 w-40 flex justify-center items-center bg-zinc-100 rounded-md">
+                <span className="loading loading-spinner loading-lg"></span>
+              </div>
             )}
           </div>
           <div className="text-xl flex justify-center md:justify-end">

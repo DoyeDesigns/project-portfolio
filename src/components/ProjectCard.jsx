@@ -160,7 +160,7 @@ function ProjectCard({ project }) {
         onRequestClose={closeModal}
         appElement={document.getElementById("root")}
         style={customStyles}
-        contentLabel="Poeject Modal"
+        contentLabel="Project Modal"
       >
         <div>
           <div className="flex justify-end mb-2 sticky top-0 z-10">

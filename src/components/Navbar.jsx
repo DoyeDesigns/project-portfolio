@@ -5,7 +5,7 @@ function Navbar() {
     <>
       <div className="navbar bg-neutral-focus p-4 mx-auto sticky top-0 z-50">
         <div className="navbar-start flex-1">
-          <a className="btn btn-ghost normal-case text-white text-xl">
+          <a href="/" className="btn btn-ghost normal-case text-white text-xl">
             DoyeCodes
           </a>
         </div>

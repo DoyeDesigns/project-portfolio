@@ -42,13 +42,15 @@ function Aboutme() {
                 music, watch a movie/anime or play football.
               </p>
 
-              <motion.button
+              <motion.a
+                href="https://docs.google.com/document/d/1JZkSO3FcrCZ_6ClAL8r6Df5n7TgCGCj1Sy-BYXxXerY/edit?usp=sharing"
                 className="p-2 hover:border-[1px] hover:border-[#7D7D7D] active:bg-zinc-200 border-2 border-[#7D7D7D] btn rounded"
                 whileHover={{ scale: [null, 1.2, 1.1] }}
                 transition={{ duration: 0.2 }}
+                target="_blank"
               >
                 See my resume
-              </motion.button>
+              </motion.a>
             </div>
             <Image
               src="/photo_5931572259703601816_y.jpg"
