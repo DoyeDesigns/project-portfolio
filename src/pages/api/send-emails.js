@@ -29,7 +29,7 @@ export default function handler(req, res) {
           <p>
           	Hello, my name is ${name}. ${message}.  
           </p>
-          <p>You can each out to me here ${email}</p>
+          <p>You can reach out to me here ${email}</p>
         `,
       };
 
