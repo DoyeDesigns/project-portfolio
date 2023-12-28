@@ -54,7 +54,7 @@ function Portfolio() {
   }
 
   return (
-    <section className="flex gap-5 flex-wrap justify-center items-center my-6">
+    <section className="flex gap-5 flex-wrap justify-center items-center my-6 h-screen overflow-y-auto">
       {projects.map((project, index) => {
         return (
           <div key={index} className="hover:cursor-pointer">

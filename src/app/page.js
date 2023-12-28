@@ -3,6 +3,7 @@ import Aboutme from '../components/Aboutme';
 import MyPortfolio from '../components/My-portfolio';
 import Skills from '../components/Skills';
 import ContactMe from '../components/ContactMe';
+import FeaturedProjects from '../components/FeaturedProjects'
 
 
 export default function Home() {
@@ -10,8 +11,9 @@ export default function Home() {
     <>
       <HeroSection />
       <Aboutme />
-      <MyPortfolio />
+      <FeaturedProjects />
       <Skills />
+      <MyPortfolio />
       <ContactMe />
     </>
   )

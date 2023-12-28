@@ -3,7 +3,7 @@
 function Navbar() {
   return (
     <>
-      <div className="navbar bg-neutral-focus p-4 mx-auto sticky top-0 z-10">
+      <div className="navbar bg-neutral-focus p-4 mx-auto sticky top-0">
         <div className="navbar-start flex-1">
           <a className="btn btn-ghost normal-case text-white text-xl">
             doyeCodes

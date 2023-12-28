@@ -9,6 +9,13 @@ import ImageCarousel from "./ImageCarousel";
 import { db } from "../config/firebase";
 import { collection, getDocs } from "firebase/firestore";
 
+// modal custom style
+const customStyles = {
+  content: {
+    zIndex: 999,
+  },
+};
+
 function ProjectCard({ project }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -148,8 +155,10 @@ function ProjectCard({ project }) {
         onRequestClose={closeModal}
         contentLabel="Example Modal"
         appElement={document.getElementById("root")}
+        style={customStyles}
+        contentLabel="Poeject Modal"
       >
-        <div>
+        <div className='z-20'>
           <div className="flex justify-end mb-2">
             <button
               onClick={closeModal}

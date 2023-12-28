@@ -51,7 +51,7 @@ function Skills() {
         >
           Skills &<br /> Experience
         </motion.h1>
-        <div className="flex flex-col lg:flex-row mx-auto gap-4">
+        <div className="flex flex-col lg:flex-row mx-auto gap-7">
           <div className="skills flex flex-nowrap lg:flex-wrap items-center lg:justify-around gap-4 w-full lg:w-3/6 scroll-smooth overscroll-contain overflow-x-auto lg:h-[448px] lg:overflow-y-auto">
             {skill.map((skill, index) => (
               <div key={index} className="w-40 text-center">

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 function HeroSection() {
   return (
-    <section className="hero min-h-screen">
+    <section className="hero py-16 lg:py-0 lg:min-h-screen">
       <div className="hero-content text-center flex flex-col">
         <div className="avatar">
           <div className="w-32 rounded-full ring ring-[#a992f7] ring-offset-base-100 ring-offset-2">
