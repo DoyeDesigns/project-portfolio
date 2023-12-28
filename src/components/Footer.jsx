@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <>
-      <footer className="footer bg-neutral-focus items-center p-4 bg-neutral-focus text-neutral-content">
+      <footer className="footer bg-neutral-focus items-center p-4 text-neutral-content">
         <div className="items-center mx-auto md:m-0 grid-flow-col">
           <span className="font-bold text-3xl">DC</span>
           <p>Copyright © 2023 - All right reserved</p>

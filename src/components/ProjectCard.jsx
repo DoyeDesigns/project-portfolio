@@ -186,7 +186,7 @@ function ProjectCard({ project }) {
               <p>{project.description}</p>
               <div>
                 <h3 className="text-xl mt-5 mb-2 font-bold">Tech Stack</h3>
-                <div className="flex gap-1">
+                <div className="flex gap-6 overflow-x-auto">
                   {project.techStack.map((stack, index) => {
                     const matchingSkill = skill.find(
                       (skill) => skill.Name === stack

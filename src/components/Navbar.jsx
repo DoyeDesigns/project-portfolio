@@ -11,7 +11,7 @@ function Navbar() {
         </div>
         <div className="navbar-end">
           <div className="text-zinc-100 hidden lg:block">
-            <ul className=" flex gap-4">
+            <ul className=" flex gap-8">
               <li>
                 <a href="/">Homepage</a>
               </li>
