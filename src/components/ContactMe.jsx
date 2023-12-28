@@ -27,6 +27,11 @@ function ContactMe() {
       });
 
       alert("Email succesfully sent");
+
+      setName('');
+      setEmail('');
+      setMessage('');
+      
     } catch (err) {
       console.log(err);
     }

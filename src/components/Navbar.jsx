@@ -6,7 +6,7 @@ function Navbar() {
       <div className="navbar bg-neutral-focus p-4 mx-auto sticky top-0 z-50">
         <div className="navbar-start flex-1">
           <a className="btn btn-ghost normal-case text-white text-xl">
-            doyeCodes
+            DoyeCodes
           </a>
         </div>
         <div className="navbar-end">
@@ -33,7 +33,7 @@ function Navbar() {
             <label tabIndex="0" className="btn btn-ghost btn-circle">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="h-10 w-10"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="white"
@@ -48,7 +48,7 @@ function Navbar() {
             </label>
             <ul
               tabIndex="0"
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-md dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
                 <a href="/">Homepage</a>
@@ -57,7 +57,7 @@ function Navbar() {
                 <a href="/portfolio">Portfolio</a>
               </li>
               <li>
-                <a href="#about-me">About</a>
+                <a href="#about-me">About me</a>
               </li>
               <li>
                 <a href="#featured-section">Featured projects</a>
