@@ -12,7 +12,12 @@ import { collection, getDocs } from "firebase/firestore";
 // modal custom style
 const customStyles = {
   content: {
+    top: "55%",
+    left: "50%",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
     zIndex: 999,
+    height: "550px",
   },
 };
 
@@ -137,7 +142,7 @@ function ProjectCard({ project }) {
           {renderSeeLess()}
         </p>
         <div className="text-center">
-    <LazyLoad offset={800}>
+          <LazyLoad offset={300}>
             <Image
               src={project.image}
               width={300}
@@ -153,16 +158,15 @@ function ProjectCard({ project }) {
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
-        contentLabel="Example Modal"
         appElement={document.getElementById("root")}
         style={customStyles}
         contentLabel="Poeject Modal"
       >
-        <div className='z-20'>
-          <div className="flex justify-end mb-2">
+        <div>
+          <div className="flex justify-end mb-2 sticky top-0 z-10">
             <button
               onClick={closeModal}
-              className="text-xl rounded-full p-2 hover:bg-slate-50"
+              className="text-xl rounded-full p-2 bg-zinc-100 hover:bg-zinc-200"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -26,7 +26,11 @@ function HeroSection() {
           </p>
           <div className="w-31/2 flex justify-center gap-4 mb-8">
             <span className="social-link">
-              <a href="https://twitter.com/Edoye_" className="hover:cursor-pointer" target="_blank">
+              <a
+                href="https://twitter.com/Edoye_"
+                className="hover:cursor-pointer"
+                target="_blank"
+              >
                 <Image
                   width={100}
                   height={100}
@@ -37,7 +41,11 @@ function HeroSection() {
               </a>
             </span>
             <span className="social-link">
-              <a href="https://github.com/DoyeDesigns" target="_blank" className="hover:cursor-pointer">
+              <a
+                href="https://github.com/DoyeDesigns"
+                target="_blank"
+                className="hover:cursor-pointer"
+              >
                 <Image
                   width={100}
                   height={100}
@@ -48,7 +56,11 @@ function HeroSection() {
               </a>
             </span>
             <span className="social-link">
-              <a href="https://t.co/dGFWzutapg" className="hover:cursor-pointer" target="_blank">
+              <a
+                href="https://t.co/dGFWzutapg"
+                className="hover:cursor-pointer"
+                target="_blank"
+              >
                 <Image
                   width={100}
                   height={100}
@@ -59,7 +71,11 @@ function HeroSection() {
               </a>
             </span>
             <span className="social-link">
-              <a href="https://www.linkedin.com/in/edoye-ogoba-8a073a251/" className="hover:cursor-pointer" target="_blank">
+              <a
+                href="https://www.linkedin.com/in/edoye-ogoba-8a073a251/"
+                className="hover:cursor-pointer"
+                target="_blank"
+              >
                 <Image
                   width={100}
                   height={100}
@@ -72,7 +88,7 @@ function HeroSection() {
           </div>
           <div className="flex justify-center gap-4 lg:gap-8">
             <motion.a
-              href='#about-me'  
+              href="#about-me"
               className="p-2 border-2 active:bg-zinc-200 hover:border-[1px] hover:border-[#7D7D7D] border-[#7D7D7D] btn rounded"
               whileHover={{ scale: [null, 1.2, 1.1] }}
               transition={{ duration: 0.2 }}
@@ -80,7 +96,7 @@ function HeroSection() {
               About Me
             </motion.a>
             <motion.a
-              href='#my-portfolio'
+              href="#my-portfolio"
               className="p-2 border-2 active:bg-zinc-200 hover:border-[1px] hover:border-[#7D7D7D] border-[#7D7D7D] btn rounded"
               whileHover={{ scale: [null, 1.2, 1.1] }}
               transition={{ duration: 0.2 }}
@@ -88,7 +104,7 @@ function HeroSection() {
               My Portfolio
             </motion.a>
             <motion.a
-              href='#contact-me'
+              href="#contact-me"
               className="p-2 border-2 active:bg-zinc-200 hover:border-[1px] hover:border-[#7D7D7D] border-[#7D7D7D] btn rounded"
               whileHover={{ scale: [null, 1.2, 1.1] }}
               transition={{ duration: 0.2 }}
@@ -103,16 +119,3 @@ function HeroSection() {
 }
 
 export default HeroSection;
-
-{
-  /* <motion.div
-      className="box"
-      initial={{ opacity: 0, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{
-        duration: 0.8,
-        delay: 0.5,
-        ease: [0, 0.71, 0.2, 1.01]
-      }}
-    /> */
-}

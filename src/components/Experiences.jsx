@@ -37,7 +37,9 @@ function Experiences() {
           key={index}
         >
           <h2 className="text-xl font-semibold">{exp.companyName}</h2>
-          <span className="text-xl text-[0.875rem] font-medium">{exp.role}</span>
+          <span className="text-xl text-[0.875rem] font-medium">
+            {exp.role}
+          </span>
           <div>
             <span>{exp.start}</span> - <span>{exp.end}</span>
           </div>

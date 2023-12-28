@@ -1,17 +1,14 @@
 "use client";
 
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-
-
 function ContactMe() {
   const [ref, inView] = useInView({ triggerOnce: true });
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,7 +33,7 @@ function ContactMe() {
   };
 
   return (
-    <section id='contact-me'>
+    <section id="contact-me">
       <div className="w-11/12 mx-auto pt-16 flex flex-col lg:flex-row pb-16">
         <motion.h1
           className="text-center text-left text-3xl font-extrabold mb-14 lg:mb-[105px] sm:text-4xl lg:text-6xl"
@@ -53,9 +50,12 @@ function ContactMe() {
         >
           Let&apos;s talk
         </motion.h1>
-        <form onSubmit={handleSubmit} className="w-full lg:w-4/5 lg:w-6/12 mx-auto lg:mr-0 flex flex-col gap-10">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full lg:w-4/5 lg:w-6/12 mx-auto lg:mr-0 flex flex-col gap-10"
+        >
           <div>
-            <label for="name" className="text-left">
+            <label htmlFor="name" className="text-left">
               Name
             </label>
             <input
@@ -69,7 +69,7 @@ function ContactMe() {
           </div>
 
           <div>
-            <label for="email" className="text-left">
+            <label htmlFor="email" className="text-left">
               Email
             </label>
             <input
@@ -83,7 +83,7 @@ function ContactMe() {
           </div>
 
           <div className="flex flex-col">
-            <label for="message" className="text-left">
+            <label htmlFor="message" className="text-left">
               Message
             </label>
             <textarea

@@ -10,7 +10,7 @@ function Aboutme() {
 
   return (
     <>
-      <section id='about-me'>
+      <section id="about-me">
         <div className="w-11/12 mx-auto pb-16 lg:py-16">
           <div className="flex flex-col text-center lg:text-left justify-center lg:flex-row lg:justify-between gap-9">
             <div>
@@ -30,10 +30,17 @@ function Aboutme() {
                 About me
               </motion.h1>
               <p className="pb-3">
-                I am a self-taught frontend developer passionate about creating engaging, intuitive, and responsive user interfaces that deliver exceptional user experiences. I enjoy collaborating with agile teams and believe that remarkable products are built through teamwork. I am a graduate of the Zuri Training Program.
+                I am a self-taught frontend developer passionate about creating
+                engaging, intuitive, and responsive user interfaces that deliver
+                exceptional user experiences. I enjoy collaborating with agile
+                teams and believe that remarkable products are built through
+                teamwork. I am a graduate of the Zuri Training Program.
               </p>
 
-              <p className='pb-6'>When I want to clear my head I play video games, listen to music, watch a movie/anime or play football.</p>
+              <p className="pb-6">
+                When I want to clear my head I play video games, listen to
+                music, watch a movie/anime or play football.
+              </p>
 
               <motion.button
                 className="p-2 hover:border-[1px] hover:border-[#7D7D7D] active:bg-zinc-200 border-2 border-[#7D7D7D] btn rounded"
