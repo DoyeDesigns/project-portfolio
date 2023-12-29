@@ -31,6 +31,14 @@
     background-color: rgb(249 250 251);
   }
 
+  [data-theme="synthwave"] body {
+    background-color: #251757;
+  }
+
+  [data-theme="synthwave"] h1,h,h,h4,h5,p {
+    color: #f1f1f1;
+  }
+
   html {
     color: #312b2b;
   }
