@@ -70,7 +70,7 @@ function FeaturedProjects() {
         </motion.h1>
         <div className="flex justify-center items-center">
           {featuredProjects.length > 1 ? (
-            <div className="flex flex-col justify-center md:flex-row md:justify-between gap-8">
+            <div className="flex flex-col justify-center md:flex-row md:justify-between gap-8 w-full">
               {shuffleArray(featuredProjects)
                 .slice(0, 3)
                 .map((project) => (
