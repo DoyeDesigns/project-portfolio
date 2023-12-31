@@ -3,21 +3,33 @@
 import React, { useState, useEffect } from "react";
 
 function Navbar() {
-  const [theme, setTheme] = useState('light');
+  const isBrowser = typeof window !== "undefined";
+  const [theme, setTheme] = useState(
+    isBrowser && localStorage.getItem("theme")
+      ? localStorage.getItem("theme")
+      : "light",
+  );
 
-  const toggleTheme = () => {
-    setTheme(theme === 'synthwave' ? 'light' : 'synthwave');
+  const [isChecked, setIsChecked] = useState(theme === "synthwave");
+
+  const toggleTheme = (e) => {
+    const newTheme = e.target.checked ? "synthwave" : "light";
+    console.log(newTheme);
+    setTheme(newTheme);
+    isBrowser && localStorage.setItem("theme", newTheme);
+    setIsChecked(e.target.checked);
   };
+
   // initially set the theme and "listen" for changes to apply them to the HTML tag
   useEffect(() => {
-    document.querySelector('html').setAttribute('data-theme', theme);
+    document.querySelector("html").setAttribute("data-theme", theme);
   }, [theme]);
 
   return (
     <>
-      <div className="navbar bg-neutral-focus p-4 mx-auto sticky top-0 z-50">
+      <div className="navbar bg-secondary p-4 mx-auto sticky top-0 z-50">
         <div className="navbar-start flex-1">
-          <a href="/" className="btn btn-ghost normal-case text-white text-xl">
+          <a href="/" className="btn btn-ghost normal-case text-white text-xl ">
             DoyeCodes
           </a>
         </div>
@@ -40,7 +52,7 @@ function Navbar() {
                 <a href="#contact-me">Contact me</a>
               </li>
               <li>
-              <label className="flex cursor-pointer gap-2">
+                <label className="flex cursor-pointer gap-2">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -59,7 +71,8 @@ function Navbar() {
                     type="checkbox"
                     value="synthwave"
                     className="toggle theme-controller"
-                    onClick={toggleTheme}
+                    onChange={toggleTheme}
+                    checked={isChecked}
                   />
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +110,7 @@ function Navbar() {
             </label>
             <ul
               tabIndex="0"
-              className="menu menu-md dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-md text-primary dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
                 <a href="/">Homepage</a>
@@ -126,6 +139,7 @@ function Navbar() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                    className="stroke-primary"
                   >
                     <circle cx="12" cy="12" r="5" />
                     <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
@@ -133,8 +147,8 @@ function Navbar() {
                   <input
                     type="checkbox"
                     value="synthwave"
-                    className="toggle theme-controller"
-                    onClick={toggleTheme}
+                    onChange={toggleTheme}
+                    className="toggle theme-controller bg-amber-300 border-sky-400 [--tglbg:theme(colors.sky.500)] checked:bg-blue-300 checked:border-blue-800 checked:[--tglbg:theme(colors.blue.900)] row-start-1 col-start-1 col-span-2"
                   />
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -146,6 +160,7 @@ function Navbar() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
+                    className="stroke-primary"
                   >
                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                   </svg>

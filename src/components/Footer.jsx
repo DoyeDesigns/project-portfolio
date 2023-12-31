@@ -1,12 +1,12 @@
 function Footer() {
   return (
     <>
-      <footer className="footer bg-neutral-focus items-center p-4 text-neutral-content">
+      <footer className="footer bg-secondary items-center p-4 text-neutral-content">
         <div className="items-center mx-auto md:m-0 grid-flow-col">
           <span className="font-bold text-3xl">DC</span>
           <p>Copyright © 2023 - All right reserved</p>
         </div>
-        <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end mx-auto md:m-0">
+        <div className="grid-flow-col gap-4 pb-4 md:place-self-center md:justify-self-end mx-auto md:m-0">
           <a
             href="https://t.co/dGFWzutapg"
             className="hover:cursor-pointer"

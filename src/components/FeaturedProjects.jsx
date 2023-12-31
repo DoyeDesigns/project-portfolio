@@ -34,7 +34,7 @@ function FeaturedProjects() {
 
   // getting featured projects
   const featuredProjects = projects.filter((obj) =>
-    obj.hasOwnProperty("featuredProject")
+    obj.hasOwnProperty("featuredProject"),
   );
 
   function shuffleArray(array) {
@@ -51,7 +51,7 @@ function FeaturedProjects() {
 
   return (
     <section id="featured-section">
-      <div className="w-11/12 mx-auto py-16">
+      <div className="w-11/12 mx-auto py-16 text-primary">
         <motion.h1
           className="text-center lg:text-left text-3xl font-extrabold mb-14 sm:text-4xl lg:text-6xl"
           ref={ref}

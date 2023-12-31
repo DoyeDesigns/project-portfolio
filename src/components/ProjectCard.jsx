@@ -18,6 +18,7 @@ const customStyles = {
     transform: "translate(-50%, -50%)",
     zIndex: 999,
     height: "550px",
+    // backgroundColor: "#1a103d",
   },
 };
 
@@ -120,7 +121,7 @@ function ProjectCard({ project }) {
   ];
 
   return (
-    <div className="project-container max-w-xs bg-zinc-100 hover:bg-zinc-200 px-3 pb-5 rounded-md cursor-pointer">
+    <div className="project-container max-w-sm bg-zinc-100 hover:bg-zinc-200 px-3 pb-5 rounded-md cursor-pointer">
       <div>
         <div
           onClick={openModal}
@@ -128,13 +129,18 @@ function ProjectCard({ project }) {
         >
           <h2 className="text-xl sm:text-2xl font-bold">{project.name}</h2>
           <div>
-            <Image
-              src="/icons8-arrow.svg"
-              width={20}
-              height={20}
-              alt="click-me-arrow"
-              className="rounded-full"
-            />
+            <svg
+              width="30px"
+              height="30px"
+              viewBox="0 0 16 16"
+              className="fill-primary rotate-[315deg] bi bi-arrow-right"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+              />
+            </svg>
           </div>
         </div>
         <p className="mb-5 max max-h-72 overflow-y-auto">
@@ -145,8 +151,8 @@ function ProjectCard({ project }) {
           <LazyLoad offset={300}>
             <Image
               src={project.image}
-              width={300}
-              height={300}
+              width={350}
+              height={320}
               alt={project.name}
               className="mx-auto object-contain cursor-pointer"
               onClick={openModal}
@@ -162,7 +168,7 @@ function ProjectCard({ project }) {
         style={customStyles}
         contentLabel="Project Modal"
       >
-        <div>
+        <div id="modal" className="text-primary">
           <div className="flex justify-end mb-2 sticky top-0 z-10">
             <button
               onClick={closeModal}
@@ -172,6 +178,7 @@ function ProjectCard({ project }) {
                 xmlns="http://www.w3.org/2000/svg"
                 height="1em"
                 viewBox="0 0 384 512"
+                className="fill-primary"
               >
                 <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
               </svg>
@@ -189,7 +196,7 @@ function ProjectCard({ project }) {
                 <div className="flex gap-6 overflow-x-auto">
                   {project.techStack.map((stack, index) => {
                     const matchingSkill = skill.find(
-                      (skill) => skill.Name === stack
+                      (skill) => skill.Name === stack,
                     );
                     return (
                       <div key={index}>

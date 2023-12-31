@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
   line-height: 1.5;
   font-weight: 400;
-  
+
   color: #000000;
 
   font-synthesis: none;
@@ -17,48 +17,95 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-  
-  ::-webkit-scrollbar {
-    width: 0.25rem;
-    height: 0.25rem;
-  }
 
-  button {
-    border-color: #7D7D7D;
-  }
+::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.25rem;
+}
 
-  body {
-    background-color: rgb(249 250 251);
-  }
+button {
+  border-color: #7d7d7d;
+}
 
-  [data-theme="synthwave"] body {
-    background-color: #251757;
-  }
+body {
+  background-color: rgb(249 250 251);
+}
 
-  [data-theme="synthwave"] h1,h,h,h4,h5,p {
-    color: #f1f1f1;
-  }
+[data-theme="synthwave"] body {
+  background-color: #1a103d;
+  /* color: #f1f1f1; */
+}
 
-  html {
-    color: #312b2b;
-  }
-  
-  /* Track color */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  
-  /* Handle color */
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-  }
+[data-theme="synthwave"] .menu {
+  background-color: #1a103d;
+  box-shadow: rgba(249, 250, 251, 0.2) 0px 8px 24px;
+}
 
-  /* to control lazy load element transition */
-  .LazyLoad {
-    opacity: 0;
-    transition: all 1s ease-in-out;
-  }
-  
-  .is-visible {
-    opacity: 1;
-  }
+[data-theme="synthwave"] .btn {
+  background-color: #3c258d;
+  border-color: #eeebfa;
+}
+
+[data-theme="synthwave"] .navbar .btn {
+  background-color: #090514;
+  border: 0;
+}
+
+[data-theme="synthwave"] .navbar .btn:hover {
+  background-color: #1a103d;
+}
+
+[data-theme="synthwave"] .btn:hover {
+  background-color: #6749cf;
+  border-color: #eeebfa;
+}
+
+[data-theme="synthwave"] .border-t-2 {
+  border-color: #eeebfa;
+}
+
+[data-theme="synthwave"] .ReactModal__Content {
+  background-color: #1a103d !important;
+}
+
+[data-theme="synthwave"] input,
+textarea {
+  color: #000000;
+  border-radius: 10px;
+}
+
+[data-theme="synthwave"] .portfolio-btn {
+  background-color: #3c258d;
+}
+
+[data-theme="synthwave"] .portfolio-btn:hover {
+  background-color: #6749cf;
+}
+
+[data-theme="synthwave"] .ring {
+  border-color: #eeebfa;
+}
+
+html {
+  color: #312b2b;
+}
+
+/* Track color */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle color */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* to control lazy load element transition */
+.LazyLoad {
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+
+.is-visible {
+  opacity: 1;
+}

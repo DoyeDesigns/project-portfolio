@@ -34,8 +34,8 @@ function Skills() {
   }, []);
 
   return (
-    <section id='skills'>
-      <div className="w-11/12 mx-auto py-16">
+    <section id="skills">
+      <div className="w-11/12 mx-auto py-16 text-primary">
         <motion.h1
           className="text-center lg:text-left text-3xl font-extrabold sm:text-4xl lg:text-6xl mb-14"
           ref={ref}

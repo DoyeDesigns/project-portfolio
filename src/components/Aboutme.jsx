@@ -11,7 +11,7 @@ function Aboutme() {
   return (
     <>
       <section id="about-me">
-        <div className="w-11/12 mx-auto pb-16 lg:py-16">
+        <div className="w-11/12 mx-auto pb-16 lg:py-16 text-primary">
           <div className="flex flex-col text-center lg:text-left justify-center lg:flex-row lg:justify-between gap-9">
             <div>
               <motion.h1

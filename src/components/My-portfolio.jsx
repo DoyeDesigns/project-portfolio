@@ -47,7 +47,7 @@ function MyPortfolio() {
 
   return (
     <section id="my-portfolio">
-      <div className="w-11/12 mx-auto flex flex-col justify-center md:flex-row md:justify-between gap-8 md:gap-4 py-16">
+      <div className="w-11/12 mx-auto flex flex-col justify-center md:flex-row md:justify-between gap-8 md:gap-4 py-16 text-primary">
         <div className="mx-auto md:m-0">
           <div>
             <motion.h1
@@ -99,7 +99,7 @@ function MyPortfolio() {
           <div className="text-xl flex justify-center md:justify-end">
             <motion.a
               href="/portfolio"
-              className="p-2 bg-neutral-focus flex justify-center items-center text-white w-40 h-40 rounded-full"
+              className="p-2 bg-neutral-focus portfolio-btn flex justify-center items-center text-white w-40 h-40 rounded-full"
               whileHover={{ scale: [null, 1.2, 1.1] }}
               transition={{ duration: 0.2 }}
             >

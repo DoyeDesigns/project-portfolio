@@ -27,7 +27,7 @@ const ImageCarousel = ({ desktopImage, mobileImage }) => {
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1,
     );
   };
 
@@ -35,7 +35,7 @@ const ImageCarousel = ({ desktopImage, mobileImage }) => {
     <div className="carousel-container flex justify-center relative">
       <button
         onClick={handlePrev}
-        className="text-xl md:text-2xl rounded-full border bg-white absolute -left-5 top-1/3 sm:top-1/2 p-1 md:p-2 hover:bg-slate-50"
+        className="text-xl text-black md:text-2xl rounded-full border bg-white absolute -left-5 top-1/3 sm:top-1/2 p-1 md:p-2 hover:bg-slate-50"
       >
         <FaAngleLeft />
       </button>
@@ -59,7 +59,7 @@ const ImageCarousel = ({ desktopImage, mobileImage }) => {
       </div>
       <button
         onClick={handleNext}
-        className="text-xl md:text-2xl rounded-full border bg-white absolute -right-5 top-1/3 sm:top-1/2 p-1 md:p-2 hover:bg-slate-50"
+        className="text-xl text-black md:text-2xl rounded-full border bg-white absolute -right-5 top-1/3 sm:top-1/2 p-1 md:p-2 hover:bg-slate-50"
       >
         <FaAngleRight />
       </button>

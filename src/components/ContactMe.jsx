@@ -28,10 +28,9 @@ function ContactMe() {
 
       alert("Email succesfully sent");
 
-      setName('');
-      setEmail('');
-      setMessage('');
-      
+      setName("");
+      setEmail("");
+      setMessage("");
     } catch (err) {
       console.log(err);
     }
@@ -39,7 +38,7 @@ function ContactMe() {
 
   return (
     <section id="contact-me">
-      <div className="w-11/12 mx-auto pt-16 flex flex-col lg:flex-row pb-16">
+      <div className="w-11/12 mx-auto pt-16 flex flex-col lg:flex-row pb-16 text-primary">
         <motion.h1
           className="text-center text-left text-3xl font-extrabold mb-14 lg:mb-[105px] sm:text-4xl lg:text-6xl"
           ref={ref}
@@ -67,7 +66,7 @@ function ContactMe() {
               id="name"
               type="text"
               placeholder=""
-              className="p-3 pl-0 w-full border-[#7D7D7D] border-b-[2.5px] bg-gray-50"
+              className="p-3 pl-1 w-full border-[#7D7D7D] border-b-[2.5px] bg-gray-50"
               onChange={(e) => setName(e.target.value)}
               value={name}
             />
@@ -81,7 +80,7 @@ function ContactMe() {
               id="email"
               type="text"
               placeholder="example@email.com"
-              className="p-3 pl-0 w-full border-[#7D7D7D] border-b-[2.5px] bg-gray-50"
+              className="p-3 pl-1 w-full border-[#7D7D7D] border-b-[2.5px] bg-gray-50"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
@@ -93,7 +92,7 @@ function ContactMe() {
             </label>
             <textarea
               id="message"
-              className="p-3 pl-0 border-[#7D7D7D] border-b-[2.5px] textarea-ghost bg-gray-50"
+              className="p-3 pl-1 border-[#7D7D7D] border-b-[2.5px] textarea-ghost bg-gray-50"
               placeholder="Type in your message"
               onChange={(e) => setMessage(e.target.value)}
               value={message}
