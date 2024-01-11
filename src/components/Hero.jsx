@@ -24,7 +24,7 @@ function HeroSection() {
           </h1>
           <h2 className="text-5xl text-primary">Front-end Developer</h2>
           <p className="py-6 text-primary">
-            Solving business poblems with technology in spectacular fashion.
+            Solving business problems with technology in spectacular fashion.
           </p>
           <div className="w-31/2 flex justify-center gap-4 mb-8">
             <span className="social-link">
