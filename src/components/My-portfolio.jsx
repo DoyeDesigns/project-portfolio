@@ -12,10 +12,9 @@ function MyPortfolio() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    const projectsCollectionRef = collection(db, "projects");
-
     async function fetchData() {
       try {
+        const projectsCollectionRef = collection(db, "projects");
         const projectsResponse = await getDocs(projectsCollectionRef);
         const projectsData = projectsResponse.docs.map((doc) => ({
           ...doc.data(),
@@ -67,7 +66,7 @@ function MyPortfolio() {
               <br /> Portfolio
             </motion.h1>
             {projects.length > 4 ? (
-              <ProjectCard project={shuffledProjects[0]} />
+              <ProjectCard key={shuffledProjects[0].name} project={shuffledProjects[0]} />
             ) : (
               <div className="h-40 w-40 flex justify-center items-center bg-zinc-100 rounded-md">
                 <span className="loading loading-spinner loading-lg"></span>
@@ -78,7 +77,7 @@ function MyPortfolio() {
 
         <div className="pt-0 md:pt-28 mx-auto md:m-0">
           {projects.length > 4 ? (
-            <ProjectCard project={shuffledProjects[1]} />
+            <ProjectCard key={shuffledProjects[1].name} project={shuffledProjects[1]} />
           ) : (
             <div className="h-40 w-40 flex justify-center items-center bg-zinc-100 rounded-md">
               <span className="loading loading-spinner loading-lg"></span>
@@ -89,7 +88,7 @@ function MyPortfolio() {
         <div className="flex flex-col gap-[70px]">
           <div className="flex flex-col mx-auto md:m-0 md:justify-between">
             {projects.length > 4 ? (
-              <ProjectCard project={shuffledProjects[2]} />
+              <ProjectCard key={shuffledProjects[2].name} project={shuffledProjects[2]} />
             ) : (
               <div className="h-40 w-40 flex justify-center items-center bg-zinc-100 rounded-md">
                 <span className="loading loading-spinner loading-lg"></span>
