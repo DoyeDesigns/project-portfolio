@@ -10,13 +10,12 @@ import { collection, getDocs } from "firebase/firestore";
 function FeaturedProjects() {
   const [ref, inView] = useInView({ triggerOnce: true });
   const [projects, setProjects] = useState([]);
-  // const [featuredProjects, setFeaturedProjects] = useState([]);
 
   useEffect(() => {
-    const projectsCollectionRef = collection(db, "projects");
-
+    
     async function fetchData() {
       try {
+        const projectsCollectionRef = collection(db, "projects");
         const projectsResponse = await getDocs(projectsCollectionRef);
         const projectsData = projectsResponse.docs.map((doc) => ({
           ...doc.data(),
@@ -75,10 +74,10 @@ function FeaturedProjects() {
                 .slice(0, 3)
                 .map((project) => (
                   <div
-                    key={project.id}
+                    key={project.name}
                     className="flex justify-center items-start"
                   >
-                    <ProjectCard key={project.id} project={project} />
+                    <ProjectCard key={project.name} project={project} />
                   </div>
                 ))}
             </div>
