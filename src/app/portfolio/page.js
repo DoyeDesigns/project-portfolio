@@ -70,7 +70,7 @@ function Portfolio() {
       <div className="text-primary">
         {projects.length > 5 ? (
           <div className="flex gap-5 flex-wrap justify-center items-center py-6">
-            {projects.map((project, index) => {
+            {projects.reverse().map((project, index) => {
               return (
                 <div key={index} className="hover:cursor-pointer">
                   <div
