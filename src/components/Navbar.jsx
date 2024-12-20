@@ -43,13 +43,13 @@ function Navbar() {
                 <a href="/portfolio">Portfolio</a>
               </li>
               <li>
-                <a href="#about-me">About</a>
+                <a href="/#about-me">About</a>
               </li>
               <li>
-                <a href="#featured-section">Featured projects</a>
+                <a href="/#featured-section">Featured projects</a>
               </li>
               <li>
-                <a href="#contact-me">Contact me</a>
+                <a href="/#contact-me">Contact me</a>
               </li>
               <li>
                 <label className="flex cursor-pointer gap-2">

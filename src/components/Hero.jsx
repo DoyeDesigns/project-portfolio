@@ -98,7 +98,7 @@ function HeroSection() {
           </div>
           <div className="flex justify-center gap-4 lg:gap-8">
             <motion.a
-              href="#about-me"
+              href="/#about-me"
               className="p-2 text-primary border-2 active:bg-zinc-200 hover:border-[1px] hover:border-[#7D7D7D] border-[#7D7D7D] btn rounded"
               whileHover={{ scale: [null, 1.2, 1.1] }}
               transition={{ duration: 0.2 }}
@@ -106,7 +106,7 @@ function HeroSection() {
               About Me
             </motion.a>
             <motion.a
-              href="#my-portfolio"
+              href="/#my-portfolio"
               className="p-2 text-primary border-2 active:bg-zinc-200 hover:border-[1px] hover:border-[#7D7D7D] border-[#7D7D7D] btn rounded"
               whileHover={{ scale: [null, 1.2, 1.1] }}
               transition={{ duration: 0.2 }}
@@ -114,7 +114,7 @@ function HeroSection() {
               My Portfolio
             </motion.a>
             <motion.a
-              href="#contact-me"
+              href="/#contact-me"
               className="p-2 text-primary border-2 active:bg-zinc-200 hover:border-[1px] hover:border-[#7D7D7D] border-[#7D7D7D] btn rounded"
               whileHover={{ scale: [null, 1.2, 1.1] }}
               transition={{ duration: 0.2 }}

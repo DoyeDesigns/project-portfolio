@@ -31,7 +31,7 @@ function Experiences() {
 
   return (
     <>
-      {experiences.map((exp, index) => (
+      {experiences.reverse().map((exp, index) => (
         <div
           className="border-[#7D7D7D] border-l-4 p-4 bg-base-200 text-wrap"
           key={index}
