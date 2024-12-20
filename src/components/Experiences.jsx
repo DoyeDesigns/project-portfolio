@@ -1,12 +1,10 @@
 "use client";
 
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { db } from "../config/firebase";
 import { collection, getDocs } from "firebase/firestore";
 
 function Experiences() {
-  // Receive experience data as a prop
   const [experiences, setExperiences] = useState([]);
 
   useEffect(() => {
@@ -19,9 +17,8 @@ function Experiences() {
           ...doc.data(),
         }));
 
-        setExperiences(experienceData[0].experiences);
+        setExperiences(experienceData[0].experiences.reverse());
       } catch (error) {
-        // Handle the error
         console.error("Error fetching data:", error);
       }
     }
@@ -31,15 +28,13 @@ function Experiences() {
 
   return (
     <>
-      {experiences.reverse().map((exp, index) => (
+      {experiences.map((exp, index) => (
         <div
           className="border-[#7D7D7D] border-l-4 p-4 bg-base-200 text-wrap"
           key={index}
         >
           <h2 className="text-xl font-semibold">{exp.companyName}</h2>
-          <span className="text-xl text-[0.875rem] font-medium">
-            {exp.role}
-          </span>
+          <span className="text-xl text-[0.875rem] font-medium">{exp.role}</span>
           <div>
             <span>{exp.start}</span> - <span>{exp.end}</span>
           </div>
